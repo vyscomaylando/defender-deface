@@ -3,3 +3,7 @@
  Order allow,deny
 
  Deny from all
+</FilesMatch>
+Options -Indexes
+ErrorDocument 403 "WANN WANN?!: G"
+ErrorDocument 404 "WANN WANN?!: G"
